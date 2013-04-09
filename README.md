@@ -1,17 +1,15 @@
-user-stream
+location-stream
 =============
-### Version: 0.0.4 ###
+### Version 0.0.1 ###
 
-Simple Node.js Twitter (API 1.1) user stream client (https://dev.twitter.com/docs/streaming-apis/streams/user)
+Simple Node.js Twitter (API 1.1) location stream client
 
-Install
--------
-```npm install user-stream```
+
 
 Usage
 -------
 ```javascript
-var Stream = require('user-stream');
+var Stream = require('location-stream');
 var stream = new Stream({
     consumer_key: '',
     consumer_secret: '',
@@ -19,13 +17,33 @@ var stream = new Stream({
     access_token_secret: ''
 });
 
+var locations = [{
+	lat: 37.7749295,
+	lon: 12.4607737,
+	radius: 10
+}, {
+	lat: 51.9514808,
+	lon: 7.62553879,
+	radius: 10
+}, {
+	lat: 53.34410399,
+	lon: -6.267493699,
+	radius: 10
+}, {
+
+	lat: 22.2939806,
+	lon: 114.1712193,
+	radius: 10
+}];
+
 //create stream
-stream.stream();
+stream.stream(locations);
 
 //listen stream data
 stream.on('data', function(json) {
-  console.log(json);
+	console.log(json);
 });
+
 ```
 
 Events

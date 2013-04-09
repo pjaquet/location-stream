@@ -5,6 +5,11 @@ var stream = new Stream({
     access_token_key: 'xxx',
     access_token_secret: 'xxx'
 });
+var locations = [{
+    lat: 0,
+    lon: 0,
+    radius: 0
+}];
 
  // * - data
  // * - garbage
@@ -14,7 +19,7 @@ var stream = new Stream({
  // * - heartbeat
 
 //create stream
-stream.stream();
+stream.stream(locations);
 
 //stream JSON data
 stream.on('data', function(data){
